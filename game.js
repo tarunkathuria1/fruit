@@ -40,8 +40,6 @@ class Game{
                 form.hide();
 
                 Player.getPlayerInfo();
-
-
                  image(back_img, 0, 0, 1000, 800);
                  var x =100;
                  var y=200;
@@ -59,15 +57,19 @@ class Game{
                        
                      if(index === player.index){
                          
-                         fill("black");
+                         // to display player name on the basket.
+                         fill("black")
                          textSize(25);
-                         text(allPlayers[plr].name ,x-25,y+25);
-
+                        text(allPlayers[plr].name,x-25,y+25)
                          
                      }
                     
-                     
-                 
+                     //text to display player score.
+                     fill("white")
+                     textSize(25);
+                     text("player 1:"+allPlayers.player1.score,50,50)
+                     text("player 2:"+allPlayers.player2.score,50,100)
+
                  }
                 
                 
@@ -103,15 +105,16 @@ class Game{
                  }
                  
                   if (player.index !== null) {
-                     //fill code here, to destroy the objects.
+                     //fill code here, to destroy the objects. (Use the one in the class project 39)
                      for(var i=0;i<fruitGroup.length;i++){
-                         if(fruitGroup.get(i).isTouching(players)){
-                            fruitGroup.get(i).destroy();
-                            player.score +=1
-                            player.update();
-                         }
-                     }
-                     
+                        if(fruitGroup.get(i).isTouching(players)){
+                           fruitGroup.get(i).destroy();
+                           player.score +=1
+                           player.update();
+                        }
+                    }
+                    
+                     // add the condition to calculate the score. and use update ti update the values in the database.
                   }
                 
 
